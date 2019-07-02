@@ -1,56 +1,43 @@
 package tests;
 
-import static org.junit.Assert.*;
-import java.util.concurrent.TimeUnit;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
+
+import genericmethods.BaseMethods;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.MyAccountPage;
 
-public class ValidationLogin {
+public class ValidationLogin extends BaseMethods {
 
-    WebDriver driver;
+	@Before
 
-    @Before
+	public void setup() throws Exception {
+		openURL("http://automationpractice.com/index.php");
+	}
 
-    public void setup(){
-
-        driver = new ChromeDriver();
-
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        driver.get("https://oss-sat.test-era.europa.eu/logon.html");
-
-    }
-
-    
 	@Test
 
-    public void testLoginOK(){
+	public void testLoginOK() {
+		
+		// Create Pages object
+		LoginPage loginpage = new LoginPage(driver);
+		HomePage homepage = new HomePage(driver);
+		MyAccountPage myaccountpage = new MyAccountPage(driver);
 
-    //Create Login Page object
+		homepage.clickSignIn();
+		loginpage.insertUser("test.automation@sapo.pt");
+		loginpage.insertPassword("testautomation");
+		loginpage.clickLoginButton();
+		myaccountpage.validateMyAccountEntry();
 
-	LoginPage loginpage = new LoginPage(driver);
-	HomePage homepage = new HomePage(driver);
+	}
 
-	loginpage.insertUser("e.ralogin@gmail.com");
-	loginpage.insertPassword("Passw0rd!2018");
-    loginpage.clickLoginButton();
-    homepage.homePageValidation();
-    
-    //Testusername
-    
-
-    }
-	
 	@After
 	public void tearDown() throws Exception {
-		driver.quit();
+		quitBrowser();
 	}
-	
+
 }

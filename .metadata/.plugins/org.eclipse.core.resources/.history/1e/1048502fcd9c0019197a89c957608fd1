@@ -1,0 +1,52 @@
+package tests;
+
+import static org.junit.Assert.*;
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import genericmethods.BaseMethods;
+import pages.HomePage;
+import pages.LoginPage;
+
+public class ValidationLogin extends BaseMethods{
+
+    @Before
+
+    public void setup(){
+
+        openURL("http://automationpractice.com/index.php");
+
+    }
+
+    
+	@Test
+
+    public void testLoginOK(){
+
+    //Create Login Page object
+
+	LoginPage loginpage = new LoginPage(driver);
+	HomePage homepage = new HomePage(driver);
+
+	loginpage.insertUser("e.ralogin@gmail.com");
+	loginpage.insertPassword("Passw0rd!2018");
+    loginpage.clickLoginButton();
+    homepage.homePageValidation();
+    
+    //Testusername
+    
+
+    }
+	
+	@After
+	public void tearDown() throws Exception {
+		quitBrowser();
+	}
+	
+}

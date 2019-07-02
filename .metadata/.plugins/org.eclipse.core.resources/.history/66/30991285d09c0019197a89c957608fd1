@@ -1,0 +1,42 @@
+package tests;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import genericmethods.BaseMethods;
+import pages.HomePage;
+import pages.LoginPage;
+
+public class ValidationHomePage extends BaseMethods{
+	
+	@Before
+
+    public void setup() throws Exception {
+        openURL("http://automationpractice.com/index.php");
+    }
+
+    
+	@Test
+
+    public void validationHomePage(){
+
+    //Create Login Page object
+
+	HomePage homepage = new HomePage(driver);
+
+	Assert.assertEquals("My Store", homepage.logo);
+	
+    
+    //Testusername
+    
+
+    }
+	
+	@After
+	public void tearDown() throws Exception {
+		quitBrowser();
+	}
+
+}

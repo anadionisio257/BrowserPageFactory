@@ -1,34 +1,27 @@
 package pages;
 
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-
-
 public class HomePage {
-	
+
 	WebDriver driver;
-	
-	@FindBy (xpath="//*[@id='bootstrap-overrides']/app-root/div[2]/app-header/oss-menu-view/div[2]/a[4]")
-	WebElement myWorkTab;
-	
-    public HomePage(WebDriver driver){
 
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+	@FindBy(xpath = "//*[@id='header']/div[2]/div/div/nav/div[1]/a")
+	public WebElement sign_in_button;
 
-    }
+	public HomePage(WebDriver driver) {
 
-    //Get the User name from Home Page
+		// This initElements method will create all WebElements
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
 
-        public void homePageValidation(){
-
-        	Assert.assertEquals("MY_WORK", myWorkTab.getText());
-        }
-
+	// Method to click on Sign In button
+	public void clickSignIn() {
+		sign_in_button.click();
+	}
 
 }

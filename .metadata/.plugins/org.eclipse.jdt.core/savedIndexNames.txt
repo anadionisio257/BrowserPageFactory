@@ -19,6 +19,7 @@ INDEX VERSION 1.130+C:\Users\asofiadi\Desktop\Projetos\ERA\Automatizar\PageFacto
 2205290751.index
 3888533620.index
 3032694404.index
+1398020720.index
 3563803126.index
 3579902010.index
 862620130.index
