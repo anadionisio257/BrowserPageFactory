@@ -43,8 +43,6 @@ public class ValidationLogin {
     loginpage.clickLoginButton();
     homepage.homePageValidation();
     
-    //Testusername
-    
 
     }
 	
