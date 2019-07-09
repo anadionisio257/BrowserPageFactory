@@ -3,6 +3,7 @@ package genericmethods;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -14,6 +15,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+
+import loginTUC008.String;
 
 public class BaseMethods {
 
@@ -56,5 +59,46 @@ public class BaseMethods {
 	public void quitBrowser() throws Exception {
 		driver.quit();	
 	}
+	
+	/* Aqui está o ciclo for para voces usarem:
+	 * 	public String[] users = { "e.ralogin@gmail.com", "l.xeralogin@gmail.com", "eralogi.n@gmail.com",
+			"lxeralogin@gmail.com", "lx.eralogin@gmail.com" }; -> Isto declaram no BaseMethods
+		
+		//A partir daqui declaram em cada teste:
+		 * LinkedList<String> userList = new LinkedList<>();
+		 * 
+		 * for (int i = 0; i < users.length; i++) {
+
+			userList.add(users[i]);
+
+			public static void doLogin(String user, String pass) throws Exception {
+
+				driver.findElement(By.xpath(accessOR("email"))).click();
+				driver.findElement(By.xpath(accessOR("email"))).clear();
+				driver.findElement(By.xpath(accessOR("email"))).sendKeys(user);
+				driver.findElement(By.xpath(accessOR("pass"))).click();
+				driver.findElement(By.xpath(accessOR("pass"))).clear();
+				driver.findElement(By.xpath(accessOR("pass"))).sendKeys(pass);
+
+				// takeScreenshot(testname, num++, path);
+
+				driver.findElement(By.xpath(accessOR("btn_login"))).click();
+
+				threadWait(3000);
+
+		
+			}
+
+			Assert.assertEquals("My Work", driver.findElement(By.xpath(accessOR("my_work"))).getText());
+
+			public static void doLogout() throws Exception {
+
+				driver.findElement(By.xpath(accessOR("user"))).click();
+				driver.findElement(By.xpath(accessOR("btn_logout"))).click();
+		
+			}
+		}
+		
+	 */
 
 }
