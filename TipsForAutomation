@@ -1,0 +1,58 @@
+- To find the correct iframe for the element. Run the code to know in which frame the element is:
+
+    int size = driver.findElements(By.tagName("iframe")).size();
+
+    for(int i=0; i<=size; i++){
+	    driver.switchTo().frame(i);
+	    int total=driver.findElements(By.xpath(" (The identifier of the object you want) ")).size();
+      System.out.println(total);
+	    driver.switchTo().defaultContent();
+    }
+
+- After finding the correct frame, put the following line to switch to correct frame. It start's in 0:
+
+    driver.switchTo().frame(x);
+
+- To go back to the original iframe:
+
+    driver.switchTo().defaultContent();
+_______________________________________________________________________________________________________
+
+- To change tabs or windows:
+
+    // Store the current window handle
+		String winHandleBefore = driver.getWindowHandle();
+    
+    // Switch to new window opened
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
+
+		// Close the new window, if that window no more required
+		driver.close();
+
+		// Switch back to original browser (first window)
+		driver.switchTo().window(winHandleBefore);
+_______________________________________________________________________________________________________
+
+- To upload a file into a field in the UI:
+
+    File file = new File(" (path to file that is going to be uploaded) ");
+
+		locator.sendKeys(file.getAbsolutePath());
+
+_______________________________________________________________________________________________________
+
+- To select from a list use Select Method from Java:
+
+		Select var = new Select( "(parent locator for the list)" );
+		var.selectByVisibleText(" (text from the locator that is going to be searched) ");
+    
+________________________________________________________________________________________________________
+
+
+
+	
+
+
+
